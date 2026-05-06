@@ -1,0 +1,59 @@
+name: CI - Skyjo
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  verify_ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      #Setup Java
+      - name: setup JDK 23
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+
+      - name: Maven cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      # Build
+      - name: Build & test & verify
+        run: mvn -Pnomutation clean verify -B
+
+      # JaCoCo
+      - name: JaCoCo coverage
+        run: |
+          cat target/site/jacoco/index.html | grep -o 'Total[^%]*%' || true
+
+      # Artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: skyjo-build
+          path: |
+            target/*.jar
+            target/apidocs
+
+      # GitHub pages
+      - name: Prepare Pages
+        run: |
+          mkdir -p public/javadoc
+          mkdir -p public/jar
+          cp -r target/apidocs/* public/javadoc/ || true
+          cp target/*jar-with-dependencies.jar public/jar/ || true
+
+      
+
+
+
