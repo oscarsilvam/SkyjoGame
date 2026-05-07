@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ca.uqam.info.student.skyjo.controller"},{"l":"ca.uqam.info.student.skyjo.model"},{"l":"ca.uqam.info.student.skyjo.view"}];updateSearchResults();
