@@ -4,6 +4,13 @@ on:
   push:
     branches: [ "main" ]
 
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+
 jobs:
   verify_ci:
     runs-on: ubuntu-latest
@@ -52,6 +59,15 @@ jobs:
           mkdir -p public/jar
           cp -r target/apidocs/* public/javadoc/ || true
           cp target/*jar-with-dependencies.jar public/jar/ || true
+
+      # deploy Pages
+      - name: Deploy to GitHub pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+
 
       
 
