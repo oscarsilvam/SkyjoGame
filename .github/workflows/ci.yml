@@ -2,10 +2,10 @@ name: CI - Skyjo
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
   pull_request:
-    branches: ["main"]
+    branches: ["master"]
 
 permissions:
   contents: write
@@ -62,7 +62,7 @@ jobs:
 
       # deploy Pages
       - name: Deploy to GitHub pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
