@@ -44,7 +44,7 @@ public class LauncherTp3 {
     // Make sure your model implements the provided model readonly interface
     String[] playerNames = new String[] {"Max", "Ryan", "Maram", "Quentin"};
 
-    // TODO: Initialize a new game, using YOUR ControllerImpl class here.
+    // TODO
     Controller controller = new ControllerImpl();
 
     // Register UI to automatically refresh on model updates
