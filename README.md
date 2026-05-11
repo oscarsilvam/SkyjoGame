@@ -17,9 +17,13 @@ manage game actions.
 ## Download & Play
 Download the executable JAR (includes all dependencies)
 :point_right: http://oscarsilvam.github.io/SkyjoGame/jar/Skyjo-jar-with-dependencies.jar
-Run the game:
+### Run the game:
+The game is started from the command line and requires player names as arguments
+The game supports between **2 and 4 players**
+
+### Example
 ```bash
-java -jar Skyjo-jar-with-dependencies.jar
+java -jar Skyjo-jar-with-dependencies.jar Oscar Luc
 ```
 
 ## :notebook: Documentation
