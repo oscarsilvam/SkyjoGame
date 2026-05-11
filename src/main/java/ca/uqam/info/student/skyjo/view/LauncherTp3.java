@@ -8,7 +8,7 @@ import ca.uqam.info.max.skyjo.view.TextualCommandSelector;
 import ca.uqam.info.max.skyjo.view.TextualVisualizer;
 import ca.uqam.info.student.skyjo.controller.ControllerImpl;
 
-// TODO: Import YOUR ControllerImpl class here.
+
 
 /**
  * Launcher for a textual / TTY session with all physical players sharing one keyboard / screen.
