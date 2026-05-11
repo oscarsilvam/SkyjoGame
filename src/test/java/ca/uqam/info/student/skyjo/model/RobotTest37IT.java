@@ -7,24 +7,24 @@ import ca.uqam.info.max.skyjo.view.CommandSelector;
 import ca.uqam.info.student.skyjo.controller.ControllerImpl;
 import java.util.Random;
 
+/**
+ * This class implements Keksli and Mad max robots.
+ */
 public class RobotTest37IT extends DefaultSizeAbstractIT {
-
-
   @Override
   public boolean isFullTraceRequested() {
     return true;
   }
 
   @Override
-  public Controller getController(ModelPreset modelPreset, CommandSelector[] commandSelectors, Random random) {
+  public Controller getController(ModelPreset modelPreset, CommandSelector[] commandSelectors,
+                                  Random random) {
     Controller controller = new ControllerImpl();
-
     int numPlayers = commandSelectors.length;
     String[] playerNames = new String[numPlayers];
     for (int i = 0; i < numPlayers; i++) {
       playerNames[i] = "Player" + i;
     }
-
     controller.initializeModel(modelPreset, playerNames, random);
     return controller;
   }

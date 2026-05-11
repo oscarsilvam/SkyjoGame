@@ -6,6 +6,9 @@ import ca.uqam.info.student.skyjo.model.SkyjoModelImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for the ReduceRowCommand class.
+ */
 public class ReduceRowCommandTest {
   @Test
   void testReduceRow() {

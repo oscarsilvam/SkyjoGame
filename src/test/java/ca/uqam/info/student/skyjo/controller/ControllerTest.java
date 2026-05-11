@@ -9,19 +9,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/**
+ * This class tests controller's functionality.
+ */
 public class ControllerTest {
-
-  class Observer implements ModelObserver {
-    int number = 0;
-
-    @Override
-    public void refresh() {
-      number ++;
-    }
-  }
   private Controller controller;
   private Observer observer;
 
+  /**
+   * Controller model.
+   */
   @BeforeEach
   public void initController() {
     controller = new ControllerImpl();
@@ -43,7 +40,8 @@ public class ControllerTest {
   public void testAvancePlayer() {
     // Reveal a card
     controller.doCommand(0);
-    Assertions.assertTrue(controller.getCurrentPlayerCommands()[0].toString().startsWith("Rej&Rev"));
+    Assertions.assertTrue(
+        controller.getCurrentPlayerCommands()[0].toString().startsWith("Rej&Rev"));
     Assertions.assertEquals(22, controller.getCurrentPlayerCommands().length);
     // End turn
     controller.doCommand(0);
@@ -57,12 +55,9 @@ public class ControllerTest {
 
   @Test
   public void testReplaceCommandFollowUp() {
-
     controller.doCommand(0);
-
     // prendre un Replace
     Command[] cmds = controller.getCurrentPlayerCommands();
-
     int indexReplace = -1;
     for (int i = 0; i < cmds.length; i++) {
       if (cmds[i].toString().startsWith("Replace")) {
@@ -71,7 +66,6 @@ public class ControllerTest {
       }
     }
     Assertions.assertTrue(indexReplace != -1);
-
     Command replace = cmds[indexReplace];
     Assertions.assertEquals(0, replace.getFollowUpCommands().length);
     Assertions.assertTrue(observer.number > 0);
@@ -83,11 +77,19 @@ public class ControllerTest {
     controller.doCommand(0);
     Command[] cmdBefore = controller.getCurrentPlayerCommands();
     // Command out of bounds
-    controller.doCommand(controller.getCurrentPlayerCommands().length+1);
+    controller.doCommand(controller.getCurrentPlayerCommands().length + 1);
     Command[] cmdAfter = controller.getCurrentPlayerCommands();
     Assertions.assertArrayEquals(cmdBefore, cmdAfter);
     controller.doCommand(-1);
     Assertions.assertArrayEquals(cmdBefore, cmdAfter);
+  }
 
+  class Observer implements ModelObserver {
+    int number = 0;
+
+    @Override
+    public void refresh() {
+      number++;
+    }
   }
 }

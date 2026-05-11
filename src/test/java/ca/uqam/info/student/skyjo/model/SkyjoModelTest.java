@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class SkyjoModelTest extends SkyjoModelTestAbstract {
 
-  private String[] players = {"Max", "Ryan", "Maram", "Quentin"};;
+  private String[] players = {"Max", "Ryan", "Maram", "Quentin"};
   private Random random;
 
   /**
