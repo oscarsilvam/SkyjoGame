@@ -7,6 +7,7 @@ import ca.uqam.info.max.skyjo.view.CommandSelector;
 import ca.uqam.info.max.skyjo.view.TextualCommandSelector;
 import ca.uqam.info.max.skyjo.view.TextualVisualizer;
 import ca.uqam.info.student.skyjo.controller.ControllerImpl;
+import java.util.Random;
 
 /**
  * Launcher for a textual / TTY session with all physical players sharing one keyboard / screen.
@@ -49,7 +50,7 @@ public class LauncherTp3 {
     // TODO
     Controller controller = new ControllerImpl();
     // Register UI to automatically refresh on model updates
-    controller.initializeModel(ModelPreset.DEFAULT, playerNames, null);
+    controller.initializeModel(ModelPreset.DEFAULT, playerNames, new Random());
     controller.addModelObserver(new TextualVisualizer(controller.getModel(), useTtyColours));
     // Register UI to automatically refresh on model updates
     controller.addModelObserver(new TextualVisualizer(controller.getModel(), useTtyColours));
