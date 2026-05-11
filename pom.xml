@@ -158,7 +158,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <!-- revision de mon code -->
             <!-- Plugin to associate files ending with IT to integration test phase
              and all other test to test phase (test)-->
             <plugin>
