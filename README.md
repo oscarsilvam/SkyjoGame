@@ -28,7 +28,7 @@ java -jar Skyjo-jar-with-dependencies.jar Oscar Luc
 
 ## :notebook: Documentation
 The full API documentation is available here:
-:point_right: https://oscarsilvam.github.io/SkyjoGame/javadoc/
+https://oscarsilvam.github.io/SkyjoGame/javadoc/
 ## How to Play
 The goal of the game is to **have the lowest score** at the end,
 
