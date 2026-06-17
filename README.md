@@ -1,6 +1,6 @@
  # :video_game: Skyjo - Java Implementation
 
-This project is a Java implementation of the **Skyjo** card game. 
+This project is a Java implementation of the **Skyjo** card game, developed as part of a university coursework project. 
 
 It follows  an **MVC architecture** and uses a **Command design pattern** to 
 manage game actions.
@@ -74,6 +74,9 @@ Each turn consists of:
 - Oscar Silva
 - Luc St-Germain
 - Maximilian Schiedermeier
+
+## Course Instructor
+- Prof. Maximiliam Schiedermeier
 
 
 
